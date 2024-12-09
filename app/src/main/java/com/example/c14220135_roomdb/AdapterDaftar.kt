@@ -13,6 +13,7 @@ import com.example.c14220135_roomdb.database.daftarBelanjaDB
 
 interface OnItemClickCallback {
     fun delData(dtBelanja: daftarBelanja)
+    fun setSelesai(dtBelanja: daftarBelanja)
 }
 
 class AdapterDaftar(private val daftarBelanja: MutableList<daftarBelanja>) : RecyclerView.Adapter<AdapterDaftar.ListViewHolder>() {
@@ -55,6 +56,9 @@ class AdapterDaftar(private val daftarBelanja: MutableList<daftarBelanja>) : Rec
         holder._btnDelete.setOnClickListener {
             onItemClickCallback.delData(daftar)
         }
+        holder._btnSelesai.setOnClickListener {
+            onItemClickCallback.setSelesai(daftar)
+        }
     }
 
     override fun getItemCount(): Int {
@@ -68,5 +72,6 @@ class AdapterDaftar(private val daftarBelanja: MutableList<daftarBelanja>) : Rec
         val _tvTanggal: TextView = itemView.findViewById(R.id.tvtanggal)
         val _btnEdit: ImageButton = itemView.findViewById(R.id.btnEdit)
         val _btnDelete: ImageButton = itemView.findViewById(R.id.btnDelete)
+        val _btnSelesai : ImageButton = itemView.findViewById(R.id.btnSelesai)
     }
 }
